@@ -1,0 +1,9 @@
+Objective: 8.A Explain object-oriented programming vocabulary
+
+Question Which C++ feature allows one interface to support many implementations?
+A. Polymorphism
+B. Recursion
+C. Preprocessing
+D. Compilation
+
+Answer A

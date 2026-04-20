@@ -1,0 +1,9 @@
+Objective: 11.A Explain inheritance relationships
+
+Question Which statement best describes inheritance?
+A. A derived class can reuse behavior from a base class
+B A derived class must remove every base member
+c A class can inherit only comments
+d) Inheritance always replaces polymorphism
+
+Answer A

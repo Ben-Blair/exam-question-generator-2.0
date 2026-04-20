@@ -1,0 +1,97 @@
+% Question 1
+\qtag {Objective: 8.A Explain object-oriented programming vocabulary }
+
+\item Which C++ feature allows one interface to support many implementations?
+\begin{enumerate}[label=\Alph*.]
+\item Polymorphism
+\item Recursion
+\item Preprocessing
+\item Compilation
+\end{enumerate}
+
+\begin{solution}
+    A
+\end{solution}
+
+% Question 2
+\qtag {Objective: 6.D Identify languages that are compiled }
+
+\item 
+T/F Java source code is compiled before execution. 
+
+\begin{solution}
+    T
+\end{solution}
+
+% Question 3
+\qtag {Objective: 5.A Understand memory allocation }
+
+\item Consider the following code.
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main() {
+   double cityRainfall = double(2.5);
+
+   cout << "rainfall:" << cityRainfall;
+
+   return 0;
+}
+\end{lstlisting}
+
+Suppose this program ran multiple times a day.  What best describes this program?  Select all that apply.
+\begin{enumerate}[label=\Alph*.]
+\item cityRainfall is on the stack.
+\item cityRainfall is on the heap.
+\item the program has a memory leak.
+\end{enumerate}
+
+\begin{solution}
+    A
+\end{solution}
+
+% Question 4
+\qtag {Objective: 7.C Understand linked list insertion }
+
+\item The following function inserts a node into a doubly linked list. Assume that the variable, head, is a pointer to the first node in the list. The member, prev, is a pointer to the previous node, and next is a pointer to the next node. Consider the following pseudocode.
+
+\begin{lstlisting}
+function insert(head, newNode):
+    if head is null:
+        head = newNode
+    else:
+        current = head
+        while current.next is not null:
+            current = current.next
+        current.next = newNode
+        newNode.prev = current
+\end{lstlisting}
+
+What is the time complexity of this function?
+\begin{enumerate}[label=\Alph*.]
+\item O(1)
+\item O(n)
+\item O(n^2)
+\item O(log n)
+\item Cannot be determined
+\end{enumerate}
+
+\begin{solution}
+    B
+\end{solution}
+
+% Question 5
+\qtag {Objective is a work in progress }
+
+\item Pick the language that is always interpreted, never compiled.
+\begin{enumerate}[label=\Alph*.]
+\item Python is always interpreted in practice.
+\item C++ is compiled.
+\item Java uses a virtual machine.
+\end{enumerate}
+
+\begin{solution}
+    A
+\end{solution}

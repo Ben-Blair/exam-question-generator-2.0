@@ -1,0 +1,70 @@
+Objective: 8.A Explain object-oriented programming vocabulary
+
+Question 1 Which C++ feature allows one interface to support many implementations?
+A. Polymorphism
+B. Recursion
+C. Preprocessing
+D. Compilation
+
+Answer A
+
+Objective: 6.D Identify languages that are compiled
+
+Question 2 T/F Java source code is compiled before execution.
+Answer: True
+
+Objective: 5.A Understand memory allocation
+
+Question 3 Consider the following code.
+#include <iostream>
+using namespace std;
+
+int main() {
+   double cityRainfall = double(2.5);
+
+   cout << "rainfall:" << cityRainfall;
+
+   return 0;
+}
+
+Suppose this program ran multiple times a day.  What best describes this program?  Select all that apply.
+A. cityRainfall is on the stack.
+B. cityRainfall is on the heap.
+C. the program has a memory leak.
+
+Answer A
+
+Objective: 7.C Understand linked list insertion
+
+Question 4
+The following function inserts a node into a doubly linked list.
+Assume that the variable, head, is a pointer to the first node in the list.
+The member, prev, is a pointer to the previous node, and next is a pointer to the next node.
+Consider the following pseudocode.
+function insert(head, newNode):
+    if head is null:
+        head = newNode
+    else:
+        current = head
+        while current.next is not null:
+            current = current.next
+        current.next = newNode
+        newNode.prev = current
+
+What is the time complexity of this function?
+A. O(1)
+B. O(n)
+C. O(n^2)
+D. O(log n)
+E. Cannot be determined
+
+Answer B
+
+Question 5 Pick the language that is
+always interpreted, never compiled.
+A. Python is always interpreted
+   in practice.
+B. C++ is compiled.
+C. Java uses a virtual machine.
+
+Answer A
