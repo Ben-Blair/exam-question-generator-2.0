@@ -1,7 +1,4 @@
-# Run CTest from the project root. Visual Studio / Xcode need a configuration (-C).
-# Usage:
-#   .\run-ctest.ps1
-#   .\run-ctest.ps1 Release
+# Visual Studio multi-config: ctest needs -C Debug|Release
 param(
     [ValidateSet('Debug', 'Release')]
     [string]$Configuration = 'Debug'

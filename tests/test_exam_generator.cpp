@@ -6,9 +6,7 @@
 #include <string>
 #include <vector>
 
-// ---------------------------------------------------------------------------
-// Existing parser tests (updated for new behavior)
-// ---------------------------------------------------------------------------
+// Unit tests for parser and LaTeX generator (GoogleTest).
 
 TEST(DraftQuestionParser, ParsesLetterPeriodOptions) {
     DraftQuestionParser parser;
@@ -93,10 +91,6 @@ TEST(DraftQuestionParser, ParsesMixedOptionFormatsInOneQuestion) {
     EXPECT_EQ(question.answer, "A");
 }
 
-// ---------------------------------------------------------------------------
-// Existing generator tests (updated)
-// ---------------------------------------------------------------------------
-
 TEST(ExamQuestionGenerator, GeneratesLatexForMultipleChoiceQuestion) {
     ExamQuestionGenerator generator;
     const std::string input =
@@ -153,10 +147,6 @@ TEST(ExamQuestionGenerator, GeneratesLatexFromMixedFormatTextFile) {
     EXPECT_NE(latex.find("\\item Inheritance always replaces polymorphism"), std::string::npos);
     EXPECT_NE(latex.find("\\begin{solution}\n    A\n\\end{solution}"), std::string::npos);
 }
-
-// ---------------------------------------------------------------------------
-// Req 1: Multi-question parsing
-// ---------------------------------------------------------------------------
 
 TEST(MultiQuestion, ParsesMultipleQuestionsFromSameInput) {
     DraftQuestionParser parser;
@@ -227,10 +217,6 @@ TEST(MultiQuestion, ConsiderTheFollowingStartsNewQuestion) {
     EXPECT_EQ(questions[0].prompt, "What is a pointer?");
     EXPECT_FALSE(questions[1].code_sample.empty());
 }
-
-// ---------------------------------------------------------------------------
-// Req 2: Code samples with lstlisting
-// ---------------------------------------------------------------------------
 
 TEST(CodeSample, DetectsCodeTriggerAndCollectsCode) {
     DraftQuestionParser parser;
@@ -311,10 +297,6 @@ TEST(CodeSample, TriggerWithoutPeriod) {
     EXPECT_FALSE(q.code_sample.empty());
 }
 
-// ---------------------------------------------------------------------------
-// Req 3: Multi-line prompts
-// ---------------------------------------------------------------------------
-
 TEST(MultiLinePrompt, CollectsMultiLineQuestionText) {
     DraftQuestionParser parser;
     const std::string input =
@@ -356,10 +338,6 @@ TEST(MultiLinePrompt, MultiLinePromptWithCodeTriggerAtEnd) {
     EXPECT_FALSE(q.code_sample.empty());
     EXPECT_EQ(q.post_code_prompt, "What does it do?");
 }
-
-// ---------------------------------------------------------------------------
-// Req 4: 2-5 answer options
-// ---------------------------------------------------------------------------
 
 TEST(OptionCount, AcceptsTwoOptions) {
     DraftQuestionParser parser;
@@ -406,10 +384,6 @@ TEST(OptionCount, AcceptsFiveOptions) {
     EXPECT_EQ(q.options[4].text, "Epsilon");
 }
 
-// ---------------------------------------------------------------------------
-// Req 5: Multi-line options
-// ---------------------------------------------------------------------------
-
 TEST(MultiLineOption, ContinuationLineAppendsToLastOption) {
     DraftQuestionParser parser;
     const std::string input =
@@ -425,10 +399,6 @@ TEST(MultiLineOption, ContinuationLineAppendsToLastOption) {
     ASSERT_EQ(q.options.size(), 2u);
     EXPECT_NE(q.options[0].text.find("terminates normally"), std::string::npos);
 }
-
-// ---------------------------------------------------------------------------
-// Req 6: Missing objective placeholder
-// ---------------------------------------------------------------------------
 
 TEST(MissingObjective, UsesPlaceholder) {
     DraftQuestionParser parser;
@@ -453,10 +423,6 @@ TEST(MissingObjective, PlaceholderAppearsInLatex) {
     const std::string latex = generator.generate_from_text(input);
     EXPECT_NE(latex.find("\\qtag {Objective is a work in progress }"), std::string::npos);
 }
-
-// ---------------------------------------------------------------------------
-// Req 7: Error blocks in output
-// ---------------------------------------------------------------------------
 
 TEST(ErrorBlocks, MissingAnswerProducesError) {
     ExamQuestionGenerator generator;
@@ -492,10 +458,6 @@ TEST(ErrorBlocks, ContinuesAfterBadQuestion) {
     EXPECT_NE(latex.find("\\item What is 1+1?"), std::string::npos);
     EXPECT_NE(latex.find("\\begin{solution}\n    B\n\\end{solution}"), std::string::npos);
 }
-
-// ---------------------------------------------------------------------------
-// Req 9: Question numbers as % comments; letters from LaTeX not hardcoded
-// ---------------------------------------------------------------------------
 
 TEST(QuestionNumber, ExtractsNumberAndRendersComment) {
     ExamQuestionGenerator generator;
@@ -541,10 +503,6 @@ TEST(QuestionNumber, OptionLettersGeneratedByLatex) {
     EXPECT_EQ(latex.find("\\item A. First"), std::string::npos);
     EXPECT_EQ(latex.find("\\item A First"), std::string::npos);
 }
-
-// ---------------------------------------------------------------------------
-// File-based multi-question test
-// ---------------------------------------------------------------------------
 
 TEST(MultiQuestionFile, GeneratesFromMultiQuestionSampleFile) {
     ExamQuestionGenerator generator;
