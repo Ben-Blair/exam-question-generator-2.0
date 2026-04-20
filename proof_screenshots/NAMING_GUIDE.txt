@@ -1,0 +1,24 @@
+Suggested filenames for your teacher (order matches a typical story: build -> tests -> output -> errors -> PDF).
+
+  01-build-success.png
+      Was: Build-*.png — MSVC warnings OK; shows linked .exe
+
+  02-unit-tests-29-passed.png
+      Was: Test2-*.png — full summary "[ PASSED ] 29 tests"
+
+  (optional) 02b-unit-tests-partial.png
+      Was: Test1-*.png — only if you want an extra "tests running" shot
+
+  03-sample-txt-and-tex-output.png
+      Was: tex_and_txt-*.png — dir listing .txt + .tex
+
+  04-missing-file-error-stdout.png
+      Was: DoesNotExistFile-*.png — could not read input file
+
+  05-overleaf-pdf-page-1.png
+      Was: OverleafA-*.png — first rendered PDF page
+
+  06-overleaf-pdf-page-2.png
+      Was: OverleafB-*.png — second page / zoom
+
+Copy your PNGs into this folder, then run rename_proof_screenshots.ps1 (see script for exact old names).
