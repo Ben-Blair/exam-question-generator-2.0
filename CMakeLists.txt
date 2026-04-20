@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall" CACHE INTERNAL "")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(PrototypeExamQuestionGenerator CXX)
 
 # Binaries go to ./build/ so graders find begin_exam_generator predictably.

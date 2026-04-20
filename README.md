@@ -51,6 +51,19 @@ ctest --test-dir build -C Debug --output-on-failure
 **Single-config generators** (Ninja, MinGW Makefiles, Unix Makefiles): the
 `-C` flag is not required; `ctest --test-dir build` is enough.
 
+## IDE / red squiggles (clangd, VS Code)
+
+CMake exports `build/compile_commands.json`. After you configure the project
+(`cmake -S . -B build`), **reload the editor** so clangd picks it up.
+
+With the **CMake Tools** extension, `.vscode/settings.json` copies that file to
+the repo root as `compile_commands.json` (ignored by git), which fixes
+“header not found” and bogus `TEST(...)` errors in `tests/`.
+
+If `build/compile_commands.json` never appears, try the **Ninja** generator
+(`cmake -S . -B build -G Ninja`): some Visual Studio generators omit the export
+on older CMake versions.
+
 ## Layout
 
 - `src/`     – implementation

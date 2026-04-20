@@ -15,6 +15,6 @@ Makefile.cmake
 _deps/
 
 .vs/
-.vscode/
 .idea/
+compile_commands.json
 *.user
