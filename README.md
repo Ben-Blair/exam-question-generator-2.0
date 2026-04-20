@@ -38,6 +38,19 @@ Or run the suite via CTest (one test entry runs all GoogleTest cases):
 ctest --test-dir build --output-on-failure
 ```
 
+**Visual Studio (and other multi-config generators):** CTest needs a build
+type. After `cmake --build build --config Debug`, run:
+
+```
+ctest --test-dir build -C Debug --output-on-failure
+```
+
+(Use `-C Release` if you built Release.) On Windows you can also run
+`.\run-ctest.ps1` from the project root (defaults to Debug).
+
+**Single-config generators** (Ninja, MinGW Makefiles, Unix Makefiles): the
+`-C` flag is not required; `ctest --test-dir build` is enough.
+
 ## Layout
 
 - `src/`     – implementation
