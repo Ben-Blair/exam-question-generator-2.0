@@ -37,5 +37,13 @@ target_link_libraries(test_exam_generator
   GTest::gtest_main
 )
 target_compile_definitions(test_exam_generator PRIVATE PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
-include(GoogleTest)
-gtest_discover_tests(test_exam_generator)
+
+# Do NOT use gtest_discover_tests() here. It runs the test binary during CMake
+# configure to enumerate tests; many autograder sandboxes block that and CMake
+# fails with an opaque error ("failed to execute correctly"). A single CTest
+# entry runs the full GoogleTest suite at test time instead.
+add_test(
+  NAME exam_generator_tests
+  COMMAND test_exam_generator
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)

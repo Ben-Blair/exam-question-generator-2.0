@@ -32,6 +32,12 @@ GoogleTest is fetched automatically via `FetchContent`. After building:
 ./build/test_exam_generator
 ```
 
+Or run the suite via CTest (one test entry runs all GoogleTest cases):
+
+```
+ctest --test-dir build --output-on-failure
+```
+
 ## Layout
 
 - `src/`     – implementation
